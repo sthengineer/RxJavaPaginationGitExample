@@ -82,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
      * subscribing for data
      */
     private void subscribeForData() {
-
         Disposable disposable = paginator
                 .onBackpressureDrop()
                 .doOnNext(page -> {
@@ -119,7 +118,12 @@ public class MainActivity extends AppCompatActivity {
                 .map(value -> {
                     List<String> items = new ArrayList<>();
                     for (int i = 1; i <= 10; i++) {
-                        items.add("Item " + (page * 10 + i));
+                        if (page == 1){
+                            items.add("Item " + ( i));
+                        }
+                        if (page>=2){
+                            items.add("Item " + ((page-1) * 10 + i));
+                        }
                     }
                     return items;
                 });
