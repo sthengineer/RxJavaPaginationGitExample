@@ -118,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
                 .map(value -> {
                     List<String> items = new ArrayList<>();
                     for (int i = 1; i <= 10; i++) {
+                        // page start from 1
                         if (page == 1){
                             items.add("Item " + ( i));
                         }
